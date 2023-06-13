@@ -23,21 +23,23 @@ public static class SeedData
             if (!context.Genre.Any())
             {
                 context.Genre.AddRange(
-                    new Genre { Name = "Action" },
-                    new Genre { Name = "Adventure" },
-                    new Genre { Name = "Animation" },
-                    new Genre { Name = "Comedy" },
-                    new Genre { Name = "Documentary" },
-                    new Genre { Name = "Drama" },
-                    new Genre { Name = "Family" },
-                    new Genre { Name = "Fantasy" },
-                    new Genre { Name = "Music" },
-                    new Genre { Name = "Mystery" },
-                    new Genre { Name = "Romance" },
-                    new Genre { Name = "Science Fiction" },
-                    new Genre { Name = "Thriller" },
-                    new Genre { Name = "War" },
-                    new Genre { Name = "Western" }
+                    new Genre { Name = "Action" },      // 1
+                    new Genre { Name = "Adventure" },   // 2
+                    new Genre { Name = "Animation" },   // 3
+                    new Genre { Name = "Comedy" },      // 4
+                    new Genre { Name = "Documentary" }, // 5
+                    new Genre { Name = "Drama" },       // 6
+                    new Genre { Name = "Family" },      // 7
+                    new Genre { Name = "Fantasy" },     // 8
+                    new Genre { Name = "History" },      // 9
+                    new Genre { Name = "Music" },       // 10
+                    new Genre { Name = "Mystery" },     // 11
+                    new Genre { Name = "Romance" },     // 12
+                    new Genre { Name = "Science Fiction" }, // 13
+                    new Genre { Name = "Thriller" },    // 14
+                    new Genre { Name = "War" },         // 15
+                    new Genre { Name = "Western" }      // 16
+                    
                     );
 
                 context.SaveChanges();
@@ -56,7 +58,7 @@ public static class SeedData
                      {
                          Title = "17 Miracles",
                          ReleaseDate = DateTime.Parse("2011-06-03"),
-                         GenreId = 17,
+                         GenreId = 9,
                          Price = 23.51M,
                          Rating = "PG",
                          imageURL = "https://image.tmdb.org/t/p/w500/Ye7lE3i0voRICAlDaQqa9vB747.jpg"
@@ -92,7 +94,7 @@ public static class SeedData
                     {
                         Title = "The Mountain of the Lord",
                         ReleaseDate = DateTime.Parse("1993-03-01"),
-                        GenreId = 17,
+                        GenreId = 9,
                         Price = 8.38M,
                         Rating = "",
                         imageURL = "https://image.tmdb.org/t/p/w500/2Lbeld2zqewPBpO6l2xGRMciHG5.jpg"
@@ -119,7 +121,7 @@ public static class SeedData
                     {
                         Title = "How Rare a Possession: The Book of Mormon",
                         ReleaseDate = DateTime.Parse("1987-11-08"),
-                        GenreId = 17,
+                        GenreId = 9,
                         Price = 11.22M,
                         Rating = "NR",
                         imageURL = "https://image.tmdb.org/t/p/w500/fvOmKq1amdIZC3s4bWuyUCNXQzd.jpg"

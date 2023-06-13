@@ -22,10 +22,8 @@
                 <span asp-validation-for="ReleaseDate" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Genre" class="control-label fw-bold"></label>
-                <select id="Genre" class="form-select minmax" asp-for="Genre">
-
-                </select>
+                <label asp-for="Genre.Name" class="control-label fw-bold"></label>
+                <select asp-for="GenreId" class="form-control minmax" asp-items="ViewBag.GenreId"></select>
                 <span asp-validation-for="Genre" class="text-danger"></span>
             </div>
             <div class="form-group">
