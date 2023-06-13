@@ -1,0 +1,92 @@
+﻿
+@model mvc_movies.Models.MovieGenreViewModel
+
+@{
+    ViewData["Title"] = "Movie List";
+}
+
+<h1>Movie List</h1>
+
+<p>
+    <a class="btn btn-outline-success mt-2" asp-action="Create">Create New</a>
+</p>
+
+<form asp-controller="Movies" asp-action="Index" method="get">
+
+    <label for="genre" id='genreLabel' class="form-label fw-bold mt-2 mb-2">
+        Filter by Genre:
+    </label>
+    <select id="genre" asp-for="MovieGenre" asp-items="Model.Genres" aria-labelledby='genreLabel'
+        class="form-select x minmax mb-2">
+        <option value="">All</option>
+    </select>
+
+
+
+    <label for="sortBy" id='sortLabel' class="ms-2 mt-2 fw-bold">Sort:</label>
+    <select id="sortBy" class="form-select minmax" asp-for="SortBy" aria-labelledby="sortLabel">
+        <option value="1">By Title</option>
+        <option value="2">By Release Date</option>
+    </select>
+
+
+    <label for="searchString" id='searchLabel' class="form-label fw-bold mt-2 mb-2">
+        Search by Title: 
+    </label>
+    <input class="form-control minmax" type="text" asp-for="SearchString" aria-labelledby='searchLabel' />
+    
+    <input class="btn btn-outline-primary minmax mt-2" type="submit" value="Filter" />
+    
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Movies![0].Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Movies![0].ReleaseDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Movies![0].Genre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Movies![0].Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Movies![0].Rating)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Movies!)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReleaseDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Genre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rating)
+            </td>
+
+            <td>
+                <a class="btn btn-outline-warning" asp-action="Edit" asp-route-id="@item.Id">Edit</a> 
+                <a class="btn btn-outline-primary" asp-action="Details" asp-route-id="@item.Id">Details</a> 
+                <a class="btn btn-outline-danger" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
