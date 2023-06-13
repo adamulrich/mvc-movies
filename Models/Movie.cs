@@ -14,7 +14,10 @@ namespace mvc_movies.Models
         [Display(Name = "Release Date")]
         [DataType(DataType.Date)]
         public DateTime ReleaseDate { get; set; }
-        public string? Genre { get; set; }
+
+        public int GenreId { get; set; }
+
+        public Genre? Genre { get; set; }
 
         [Column(TypeName = "decimal(18, 2)")]
         public decimal Price { get; set; }
@@ -33,5 +36,13 @@ namespace mvc_movies.Models
         public string? MovieGenre { get; set; }
         public string? SearchString { get; set; }
     }
+
+
+    public class Genre
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+    }
+
 
 }

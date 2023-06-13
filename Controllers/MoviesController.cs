@@ -32,9 +32,8 @@ namespace mvc_movies.Controllers
 
 
             // Use LINQ to get list of genres.
-            IQueryable<string> genreQuery = from m in _context.Movie
-                                            orderby m.Genre
-                                            select m.Genre;
+            IQueryable<string> genreQuery = from m in _context.Genre
+                                            select m.Name;
 
 
             var movies = from m in _context.Movie
@@ -47,7 +46,12 @@ namespace mvc_movies.Controllers
 
             if (!string.IsNullOrEmpty(movieGenre))
             {
-                movies = movies.Where(x => x.Genre == movieGenre);
+                var genres = from g in _context.Genre
+                           where g.Name == movieGenre
+                           select g.Id;
+                var GenreId = genres.FirstOrDefault();
+
+                movies = movies.Where (m => m.GenreId == GenreId);
             }
 
             if (sortBy == "2")
@@ -56,7 +60,7 @@ namespace mvc_movies.Controllers
             }
             else
             {
-                movies = movies.OrderBy(m => m.Title);
+                movies = movies.OrderBy(m => m.Title).Include(m => m.Genre);
             }
 
 
@@ -93,6 +97,7 @@ namespace mvc_movies.Controllers
         // GET: Movies/Create
         public IActionResult Create()
         {
+            
             return View();
         }
 
